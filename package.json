@@ -53,7 +53,8 @@
     "typings": "^2.1.0",
     "webpack": "^1.12.13",
     "webpack-info-plugin": "^0.1.0",
-    "webpack-node-externals": "^0.4.1"
+    "webpack-node-externals": "^0.4.1",
+    "webpack-stats-plugin": "^0.1.4"
   },
   "dependencies": {
     "jquery": "1.12.4"

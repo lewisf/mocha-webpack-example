@@ -2,6 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 var isWebpack2 = /^2/.test(require('webpack/package.json').version);
 var CheckerPlugin = require('awesome-typescript-loader').CheckerPlugin;
+ const StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin;
 var nodeExternals = require('webpack-node-externals');
 
 const awesomeTsLoader = false;
@@ -61,7 +62,7 @@ var config = {
       }
     ),
   },
-  plugins: [].concat(awesomeTsLoader ? new CheckerPlugin() : []),
+  plugins: [new StatsWriterPlugin({ filename: "stats.json" })].concat(awesomeTsLoader ? new CheckerPlugin() : []),
   target: 'node', // in order to ignore built-in modules like path, fs, etc.
   externals: [nodeExternals()], // in order to ignore all modules in node_modules folder
   devtool: "#inline-cheap-module-source-map"
